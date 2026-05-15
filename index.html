@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>给宝宝的一封信</title>
+    
+    <!-- 引入可爱字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+    
+    <style>
+        /* 全局设置 */
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* 温馨的粉色渐变背景 */
+            background: linear-gradient(135deg, #ffcce6 0%, #ff99cc 100%);
+            overflow: hidden;
+            font-family: 'Ma Shan Zheng', cursive, sans-serif;
+        }
+
+        /* 容器卡片 */
+        .container {
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            padding: 40px;
+            background-color: rgba(255, 255, 255, 0.85);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 2s ease-out;
+        }
+
+        /* 主标题 */
+        h1 {
+            color: #ff3366;
+            font-size: 4em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            animation: pulse 1.5s infinite;
+        }
+
+        /* 副标题 */
+        p {
+            color: #666;
+            font-size: 1.5em;
+            line-height: 1.8;
+        }
+
+        /* 爱心样式 */
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #ff6699;
+            transform: rotate(45deg);
+            animation: fall 10s linear infinite;
+            opacity: 0.7;
+        }
+
+        .heart::before,
+        .heart::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #ff6699;
+            border-radius: 50%;
+        }
+
+        .heart::before {
+            top: -10px;
+            left: 0;
+        }
+
+        .heart::after {
+            left: -10px;
+            top: 0;
+        }
+
+        /* 动画定义 */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-100vh) rotate(45deg);
+                opacity: 0;
+            }
+            10% { opacity: 0.7; }
+            90% { opacity: 0.7; }
+            100% {
+                transform: translateY(100vh) rotate(45deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 动态爱心（JS自动生成） -->
+    <script>
+        // 创建多个爱心
+        for (let i = 0; i < 30; i++) {
+            let heart = document.createElement('div');
+            heart.className = 'heart';
+            // 随机位置
+            heart.style.left = Math.random() * 100 + 'vw';
+            // 随机大小
+            let size = Math.random() * 15 + 10;
+            heart.style.width = size + 'px';
+            heart.style.height = size + 'px';
+            // 随机颜色
+            let colors = ['#ff6699', '#ff3366', '#ff9999', '#ffcccc'];
+            heart.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            // 随机速度
+            heart.style.animationDuration = Math.random() * 5 + 8 + 's';
+            heart.style.animationDelay = Math.random() * 5 + 's';
+            
+            document.body.appendChild(heart);
+        }
+    </script>
+
+    <!-- 主要内容 -->
+    <div class="container">
+        <h1>宝宝我错了 😭</h1>
+        <p>别生气啦，好不好嘛～<br>
+        给你买好吃的，带你去玩。<br>
+        求原谅 🙏</p>
+    </div>
+
+</body>
+</html>
